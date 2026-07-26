@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family:'Open Sans' sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Define primary and secondary colors */
+        :root {
+            --primaryColor: #0d5346;
+            --secondaryColor: #ffc107;
+            --whiteColor: #fff;
+            --blackColor: #222;
+            --softGreenColor: #d9f2ee;
+            --darkGreyColor: #a7a7a7;
+            --greyColor: #f5f5f5;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2%;
+            background-color: var(--primaryColor);
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-menu a,
+        .sidebar-logout a {
+            padding: 5% 8%;
+            margin: 0.6rem 0; /* Correct margin  0.6rem 0 */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu a ion-icon,
+        .sidebar-logout a ion-icon {
+            font-size: 20px;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-logout a:hover {
+            background-color: var(--secondaryColor);
+            border-radius: 50px;
+        }
+
+        /* Mobile view */
+        @media screen and (max-width:640px) {
+            .sidebar {
+                display: none;
+            }
+        }
+        .container {
+            width: calc(100%-260px);
+            margin-left: 260px;
+            padding: 20px;
+            background-color: var(--whiteColor);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            margin-left: 100px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--softGreenColor);
+            font-weight: bold;
+            color: #333;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .add-btn {
+            background-color: var(--primaryColor);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-btn:hover {
+            background-color: var(--secondaryColor);
+        }
+
+        .foter-container {
+            margin-left: 260px;
+            margin-top: 200px;
+            text-align: center;
+            background-color: var(--softGreenColor);
+        }
+
+        .bottom-container a {
+            color: black;
+        }
+
+        .link {
+            padding: 15px;
+            color: var(--primaryColor)
+        }
+    </style>
+    <!-- Include Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- logo -->
+        <h1 class="logo">HomeChefHub</h1>
+        <!-- list of menus -->
+        <div class="sidebar-menu">
+            <a href="index.html"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+            <a href="bill.html"><ion-icon name="receipt-outline"></ion-icon>Bill</a>
+            <a href="notifiaction.html"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+            <a href="contact.html"><ion-icon name="chatbubble-outline"></ion-icon>Contact Us</a>
+            <a href="setting.html"><ion-icon name="settings-outline"></ion-icon>Setting</a>
+        </div>
+        <!-- logout -->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Notifications</h2>
+        
+        <!-- Notification Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Notification Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>System Update</td>
+                    <td>The system will be down for maintenance from 2:00 AM to 4:00 AM.</td>
+                    <td>2024-10-21</td>
+                </tr>
+                <tr>
+                    <td>New Feature Released</td>
+                    <td>Check out the new chat feature available in your dashboard.</td>
+                    <td>2024-10-19</td>
+                </tr>
+                <tr>
+                    <td>Account Alert</td>
+                    <td>Your password will expire in 3 days. Please update it soon.</td>
+                    <td>2024-10-18</td>
+                </tr>
+                <!-- Add more notification rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- Add Notification Button -->
+        <div class="btn-container">
+            <button class="add-btn">Add New Notification</button>
+        </div>
+    </div>
+
+    <footer class="foter-container">
+        <div class="foter-div">
+            <div class="bottom-container">
+                <h3>HomeChefHub</h3>
+                <p>Your go-to cloud kitchen for delicious meals delivered to your door.</p>
+            </div>
+            <div class="bottom-container">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@homechefhub.com">info@homechefhub.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            </div>
+            <div class="bottom-container">
+                <h3>Follow Us</h3>
+                <a href="#">
+                    <ion-icon name="logo-facebook" style="font-size: 24px;"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-instagram" style="font-size: 24px;"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-twitter" style="font-size: 24px;"></ion-icon>
+                </a>
+            </div>
+            <div >
+                <h3>Quick Links</h3>
+                <a href="index.html" class="link">Home</a>
+                <a href="menu.html" class="link">Menu</a>
+                <a href="about.html" class="link">About Us</a>
+                <a href="contact.html" class="link">Contact</a>
+            </div>
+        </div>
+        <div>
+            <p>&copy; 2024 HomeChefHub. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Include Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>

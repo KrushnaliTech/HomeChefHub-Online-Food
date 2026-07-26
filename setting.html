@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+        body {
+            height: auto;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans' sans-serif;
+        }
+
+        /* Define primary and secondary colors */
+        :root {
+            --primaryColor: #0d5346;
+            --secondaryColor: #ffc107;
+            --whiteColor: #fff;
+            --blackColor: #222;
+            --softGreenColor: #d9f2ee;
+            --darkGreyColor: #a7a7a7;
+            --greyColor: #f5f5f5;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2%;
+            background-color: var(--primaryColor);
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-menu a,
+        .sidebar-logout a {
+            padding: 5% 8%;
+            margin: 0.6rem 0;
+            /* Correct margin */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu a ion-icon,
+        .sidebar-logout a ion-icon {
+            font-size: 20px;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-logout a:hover {
+            background-color: var(--secondaryColor);
+            border-radius: 50px;
+        }
+
+        /* Mobile view */
+        @media screen and (max-width:640px) {
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar-logout a:hover {
+            background-color: var(--secondaryColor);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin-left: 450px;
+            margin-bottom: 30px;
+            padding-left: 50px auto;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-item i {
+            font-size: 30px;
+            color: var(--softGreenColor);
+            margin-right: 15px;
+        }
+
+        .setting-item span {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .setting-item a {
+            margin-left: auto;
+            color: var(--primaryColor);
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .setting-item a:hover {
+            color: var(--secondaryColor);
+        }
+
+        @media (max-width: 600px) {
+            .setting-item span {
+                font-size: 14px;
+            }
+
+            .setting-item i {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <!-- Include Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <!-- logo -->
+        <h1 class="logo">HomeChefHub</h1>
+        <!-- list of menus -->
+        <div class="sidebar-menu">
+            <a href="index.html"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+            <a href="bill.html"><ion-icon name="receipt-outline"></ion-icon>Bill</a>
+            <a href="notifiaction.html"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+            <a href="contact.html"><ion-icon name="chatbubble-outline"></ion-icon>Contact Us</a>
+            <a href="setting.html"><ion-icon name="settings-outline"></ion-icon>Setting</a>
+        </div>
+        <!-- logout -->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Settings</h2>
+
+        <!-- Notification Settings -->
+        <div class="setting-item">
+            <i class="fas fa-bell"></i>
+            <span>Notification Settings</span>
+            <a href="#">Change</a>
+        </div>
+
+        <!-- Privacy Settings -->
+        <div class="setting-item">
+            <i class="fas fa-user-shield"></i>
+            <span>Privacy Settings</span>
+            <a href="#">Change</a>
+        </div>
+
+        <!-- Account Settings -->
+        <div class="setting-item">
+            <i class="fas fa-user-cog"></i>
+            <span>Account Settings</span>
+            <a href="#">Change</a>
+        </div>
+
+        <!-- Language Settings -->
+        <div class="setting-item">
+            <i class="fas fa-language"></i>
+            <span>Language Preferences</span>
+            <a href="#">Change</a>
+        </div>
+
+        <!-- Password Settings -->
+        <div class="setting-item">
+            <i class="fas fa-key"></i>
+            <span>Change Password</span>
+            <a href="#">Change</a>
+        </div>
+
+    </div>
+
+    <footer style="background-color: var(--softGreenColor); padding: 20px 0; text-align: center; margin-left: 260px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="margin-bottom: 20px;">
+                <h2 style="margin: 0;" color="var(--primaryColor)">HomeChefHub</h2>
+                <p style="margin: 5px 0;">Your go-to cloud kitchen for delicious meals delivered to your door.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@homechefhub.com"
+                        style="color: var(--blackColor); text-decoration: underline;">info@homechefhub.com</a></p>
+                <p>Phone: <a href="tel:+1234567890" style="color: black; text-decoration: underline;">+1 234 567 890</a>
+                </p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3>Follow Us</h3>
+                <a href="#" style="margin: 0 10px; color: var(--primaryColor); padding: 10px; text-decoration: none;">
+                    <ion-icon name="logo-facebook" style="font-size: 24px;"></ion-icon>
+                </a>
+                <a href="#" style="margin: 0 10px; color: var(--primaryColor); padding: 10px;; text-decoration: none;">
+                    <ion-icon name="logo-instagram" style="font-size: 24px;"></ion-icon>
+                </a>
+                <a href="#" style="margin: 0 10px; color: var(--primaryColor); padding: 10px;; text-decoration: none;">
+                    <ion-icon name="logo-twitter" style="font-size: 24px;"></ion-icon>
+                </a>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index.html" style="color: var(--primaryColor); text-decoration: underline; margin: 0 10px;">Home</a>
+                <a href="menu.html" style="color: var(--primaryColor); text-decoration: underline; margin: 0 10px;">Menu</a>
+                <a href="about.html" style="color: var(--primaryColor); text-decoration: underline; margin: 0 10px;">About Us</a>
+                <a href="contact.html" style="color: var(--primaryColor); text-decoration: underline; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+        <div style="border-top: 2px solid var(--primaryColor); margin-top: 20px; padding-top: 10px;">
+            <p style="margin: 0;">&copy; 2024 HomeChefHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

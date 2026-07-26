@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans' sans-serif;
+}
+
+:root {
+    --primaryColor: rgb(13, 83, 70);
+    --secondaryColor: rgb(255, 193, 7);
+    --whiteColor: rgb(255, 255, 255);
+    --blackColor: rgb(34, 34, 34);
+    --softGreenColor: rgb(217, 242, 238);
+    --darkGreyColor: rgb(167, 167, 167);
+    --greyColor: rgb(245, 245, 245);
+}
+
+.notification-container {
+    background-image: linear-gradient(rgba(13, 83, 70, 0.5),rgba(13, 83, 70, 0.5)),url(image/chef.jpeg);
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--blackColor);
+}
+
+.notification {
+    background-color: var(--whiteColor);
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 4px solid var(--primaryColor);
+    border-radius: 4px;
+}
+
+.notification p {
+    color:var(--blackColor);
+}
+
+.timestamp {
+    font-size: 12px;
+    color: var(--whiteColor);
+    text-align: right;
+    display: block;
+}

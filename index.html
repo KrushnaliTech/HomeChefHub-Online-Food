@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <title>Online Food Delivary Cloud Kitchen</title>
+    <script src="MiniProject/app.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <div class="sidebar">
+        <!-- logo -->
+        <h1 class="logo">HomeChefHub</h1>
+        <!-- list of menus -->
+        <div class="sidebar-menu">
+            <a href="#"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+            <a href="#"><ion-icon name="receipt-outline"></ion-icon>Bill</a>
+            <a href="#"><ion-icon name="Wallet-outline"></ion-icon>Address</a>
+            <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+            <a href="contact.html"><ion-icon name="chatbubble-outline"></ion-icon>Contact Us</a>
+            <a href="#"><ion-icon name="settings-outline"></ion-icon>Setting</a>
+        </div>
+        <!-- logout -->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="main">
+        <!-- main navbar -->
+        <div class="main-navbar">
+            <!-- menu when appear on mobile version -->
+            <ion-icon class="menu-toggle" name="menu-outline"></ion-icon>
+            <!-- search bar -->
+            <div class="search">
+                <input type="text" placeholder="What you want to eat?">
+                <button class="search-btn">Search</button>
+            </div>
+            <!--profile icon on left side navbar  -->
+            <div class="profile">
+                <a class="cart" href="#" onclick="toggleCartPopup()">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a class="user" href="register.html"><ion-icon name="person-outline"></ion-icon></a>
+            </div>
+        </div>
+
+        <!-- shooping cart section -->
+        <div id="cart-popup" class="cart-popup">
+            <h4>Shoping Cart</h4>
+            <table id="cart-item">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>0</th>
+                        <th>Price(₹)</th>
+                        <th>Total(₹)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p>Total(₹) <span id="cart-total">0.00</span></p>
+            <a class="cart-close" onclick="closeCart()"><ion-icon name="close-circle-outline"></ion-icon></a>
+        </div>
+
+        <!-- main highlight -->
+        <div class="main-highlight">
+            <!-- title section and arrow -->
+            <div class="main-header">
+                <h2 class="main-title">Recommendation</h2>
+                <div class="main-arrow">
+                    <ion-icon class="back" name="chevron-back-circle-outline"></ion-icon>
+                    <ion-icon class="next" name="chevron-forward-circle-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- highlight menu -->
+            <div class="highlight-wrapper">
+                <div class="highlight-card">
+                    <img class="highlight-img" src="image/chef.jpeg">
+                    <div class="highlight-desc">
+                        <h4>Rebel Foods</h4>
+                        <p>Navi Mumbai</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="image/bg.jpeg">
+                    <div class="highlight-desc">
+                        <h4>Rebel Foods</h4>
+                        <p>Navi Mumbai</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="image/bg1.jpeg">
+                    <div class="highlight-desc">
+                        <h4>Rebel Foods</h4>
+                        <p>Navi Mumbai</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="image/mix.jpeg">
+                    <div class="highlight-desc">
+                        <h4>Rebel Foods</h4>
+                        <p>Navi Mumbai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main menu/order -->
+        <div class="main-menus">
+            <!-- filter section -->
+            <div class="main-filter">
+                <div>
+                    <h2 class="main-title">Menu <br> Catogory</h2>
+                    <div class="main-arrow">
+                        <ion-icon class="back-menu" name="chevron-back-circle-outline"></ion-icon>
+                        <ion-icon class="next-menu" name="chevron-forward-circle-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="filter-wrapper">
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="restaurant-outline"></ion-icon>
+                        </div>
+                        <p>All Menus</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="fast-food-outline"></ion-icon>
+                        </div>
+                        <p>Burger</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="pizza-outline"></ion-icon>
+                        </div>
+                        <p>Pizza</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="wine-outline"></ion-icon>
+                        </div>
+                        <p>Beverage</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="ice-cream-outline"></ion-icon>
+                        </div>
+                        <p>Ice Cream</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="cafe-outline"></ion-icon>
+                        </div>
+                        <p>Coffee</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="fish-outline"></ion-icon>
+                        </div>
+                        <p>Seafood</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="nutrition-outline"></ion-icon>
+                        </div>
+                        <p>Healthy</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <!-- List of your food menus -->
+            <div class="main-detail">
+                <h2 class="main-title">Choose Order</h2>
+                <div class="detail-wrapper">
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/Modak.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Ukadiche Modak</h4>
+                                <p class="detail-sub">Home made ukadihe modak. Prasad for Ganapati Bappa. From Sarita's
+                                    Kitchen</p>
+                                <p class="price">₹150.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Ukadiche Modak', 150.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/noodle.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Shezwan Noodles</h4>
+                                <p class="detail-sub">Ching Chineese Shezwan Noodles.Order Now. From Madhura's Recipes
+                                </p>
+                                <p class="price">₹100.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Shezwan Noodles ', 100.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/dosa.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Idli-Dosa</h4>
+                                <p class="detail-sub">Everyone's favorite South Indian Dosa and Idli. From Apli Ajji
+                                    Kitchen</p>
+                                <p class="price">₹75.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Idli-Dosa', 75.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/puran_poli.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Puran Poli</h4>
+                                <p class="detail-sub">Soft and Tasty Pran Poli with Sajuk Tup. From Sarita's Kitchen</p>
+                                <p class="price">₹200.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Pran Poli', 200.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/dokla.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Khaman Dhokla</h4>
+                                <p class="detail-sub">Desi Khaman Dokla. The Kalpan'a Kitchen.
+                                </p>
+                                <p class="price">₹50.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Khaman Dhokla', 50.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="image/bg1.jpeg">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Momos</h4>
+                                <p class="detail-sub">Soft Veg & Non-veg Momos. From Foodies Kitchen</p>
+                                <p class="price">₹200.00</p>
+                                <button class="add-to-cart-btn" onclick="addToCart('Momos', 200.00)">Add to
+                                    cart</button>
+                            </div>
+                            <ion-icon class="detail-favorites" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- Adding JavaScript -->
+
+</html>

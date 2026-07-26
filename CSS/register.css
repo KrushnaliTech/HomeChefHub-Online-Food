@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Open Sans' sans-serif;
+}
+
+:root {
+    --primaryColor: rgb(13, 83, 70);
+    --secondaryColor: rgb(255, 193, 7);
+    --whiteColor: rgb(255, 255, 255);
+    --blackColor: rgb(34, 34, 34);
+    --softGreenColor: rgb(217, 242, 238);
+    --darkGreyColor: rgb(167, 167, 167);
+    --greyColor: rgb(245, 245, 245);
+}
+
+body {
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(217, 242, 238, 0.5), rgba(217, 242, 238, 0.5)), url('image/chef.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat:repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--softGreenColor);
+    padding: 40px 50px 60px;
+    text-align: center;
+}
+
+.cart-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--blackColor);
+}
+
+.cart-close:hover{
+    font-size: 25px;
+}
+
+.form-box h1 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    color: var(--primaryColor);
+    position: relative;
+}
+.form-box h1:hover {
+    letter-spacing: 1.1px;
+}
+
+.form-box h1::after{
+    content: '';
+    width: 55px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--primaryColor);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.input-fild {
+    background: var(--greyColor);
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+}
+
+.input-fild ion-icon {
+    margin-left: 15px;
+    color: var(--primaryColor);
+}
+
+.input-fild:hover{
+    box-shadow: rgba(92, 94, 97, 0.2) 0px 8px 24px;
+}
+
+form p {
+    text-align: center;
+    font-size: 15px;
+}
+
+form p a {
+    text-decoration: none;
+    color: var(--primaryColor);
+}
+
+form p a:hover {
+    letter-spacing: 1px;
+}
+
+.btn-fild {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-fild button{
+    width: 100%;
+    padding: 12px;
+    background-color:rgb(13, 83, 70);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-fild button:hover{
+    background-color: var(--secondaryColor);
+    color: #222;
+}
+
+.input-group {
+    height: 350px;
+}

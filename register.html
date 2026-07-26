@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/register.css">
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <title>Online Food Delivary Cloud Kitchen</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <a class="cart-close" href="index.html"><ion-icon name="close-circle-outline"></ion-icon></a>
+            <h1 id="title"><b>Register</b></h1>
+            <form action="login.html" method="POST" id="SignUp">
+                <div class="input-group">
+                    <div class="input-fild" id="nameField">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-fild" id="Address">
+                        <ion-icon name="Wallet-outline"></ion-icon>
+                        <input type="text" placeholder="Address" required>
+                    </div>
+                    <div class="input-fild" id="Kitchen">
+                        <ion-icon name="storefront-outline"></ion-icon>
+                        <input type="text" placeholder="Kitchen Name" required>
+                    </div>
+                    <div class="input-fild">
+                        <ion-icon name="mail-outline" id="email"></ion-icon>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-fild" id="password">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <p>Already have account? <a href="login.html" id="login">Log in</a></p>
+                </div>
+                <div class="btn-fild">
+                    <button type="submit" id="signupBtn" value="submit now">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

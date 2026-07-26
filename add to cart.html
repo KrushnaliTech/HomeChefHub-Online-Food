@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Delivery Cloud Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Adding JavaScript -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="app.js" defer></script>
+    <style>
+        /* Define primary and secondary colors */
+        :root {
+            --primaryColor: #0d5346;
+            --secondaryColor: #ffc107;
+            --whiteColor: #fff;
+            --blackColor: #222;
+            --softGreenColor: #d9f2ee;
+            --darkGreyColor: #a7a7a7;
+            --greyColor: #f5f5f5;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2%;
+            background-color: var(--primaryColor);
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-menu a,
+        .sidebar-logout a {
+            padding: 5% 8%;
+            margin: 0.6rem 0;
+            /* Correct margin */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--whiteColor);
+        }
+
+        .sidebar-menu a ion-icon,
+        .sidebar-logout a ion-icon {
+            font-size: 20px;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-logout a:hover {
+            background-color: var(--secondaryColor);
+            border-radius: 50px;
+        }
+
+        /* Mobile view */
+        @media screen and (max-width:640px) {
+            .sidebar {
+                display: none;
+            }
+        }
+
+        /* Cart Popup Styling */
+        .cart-popup {
+            align-items: center;
+            position: fixed;
+            top: 20%;
+            right: 20px;
+            width: 1000px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            /* Always display the cart */
+        }
+
+        .cart-popup h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cart-popup table {
+            width: 100%;
+        }
+
+        .cart-popup .cart-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-size: 12px;
+            position: relative;
+            top: -10px;
+            right: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <!-- logo -->
+        <h1 class="logo">HomeChefHub</h1>
+        <!-- list of menus -->
+        <div class="sidebar-menu">
+            <a href="index.html"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+            <a href="bill.html"><ion-icon name="receipt-outline"></ion-icon>Bill</a>
+            <a href="notifiaction.html"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+            <a href="contact.html"><ion-icon name="chatbubble-outline"></ion-icon>Contact Us</a>
+            <a href="setting.html"><ion-icon name="settings-outline"></ion-icon>Setting</a>
+        </div>
+        <!-- logout -->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- Navbar -->
+        <div class="main-navbar">
+            <div class="profile">
+                <a class="cart" href="#">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a class="user" href="register.html"><ion-icon name="person-outline"></ion-icon></a>
+            </div>
+        </div>
+
+        <!-- Always visible Cart Popup -->
+        <div id="cart-popup" class="cart-popup">
+            <h4>Shopping Cart</h4>
+            <table id="cart-item">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price(₹)</th>
+                        <th>Total(₹)</th>
+                        <th><a href="payment.html">Payment</a></th>
+                        <!-- New Payment Column -->
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p>Total(₹) <span id="cart-total">0.00</span></p>
+        </div>
+
+        <!-- ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- JavaScript -->
+        <script>
+            let cart = [];
+            let cartCount = 0;
+
+            function addToCart(itemName, itemPrice) {
+                let quantity = 1;  // For simplicity, default quantity is 1
+
+                // Send data to PHP to store in database
+                $.ajax({
+                    url: 'add_to_cart.php',
+                    type: 'POST',
+                    data: {
+                        item_name: itemName,
+                        quantity: quantity,
+                        price: itemPrice,
+                        payment: amount,
+                    },
+                    success: function (response) {
+                        alert(response);  // Show success message
+                        updateCart();
+                    }
+                });
+            }
+            function updateCart() {
+                    $.ajax({
+                        url: 'fetch_cart.php',
+                        type: 'GET',
+                        success: function (response) {
+                            let cartItems = JSON.parse(response);
+                            let cartTableBody = document.querySelector('#cart-item tbody');
+                            cartTableBody.innerHTML = '';  // Clear existing items
+
+                            let cartTotal = 0;
+                            cartItems.forEach(item => {
+                                let row = `<tr>
+                            <td>${item.item_name}</td>
+                            <td>${item.quantity}</td>
+                            <td>₹${item.price.toFixed(2)}</td>
+                            <td>₹${item.total_price.toFixed(2)}</td>
+                            <td><a href="file:///C:/Users/Sunil/Desktop/MiniProject/payment.html">₹${item.payment.toFixed(2)}</a></td>
+                            </tr>`;
+                                cartTableBody.innerHTML += row;
+                                cartTotal += parseFloat(item.total_price);
+                            });
+
+                            document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+                        }
+                    });
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>

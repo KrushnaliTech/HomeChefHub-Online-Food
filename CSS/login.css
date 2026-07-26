@@ -1,0 +1,102 @@
+body {
+    font-family: 'Open Sans' sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+:root {
+    --primaryColor: rgb(13, 83, 70);
+    --secondaryColor: rgb(255, 193, 7);
+    --whiteColor: rgb(255, 255, 255);
+    --blackColor: rgb(34, 34, 34);
+    --softGreenColor: rgb(217, 242, 238);
+    --darkGreyColor: rgb(167, 167, 167);
+    --greyColor: rgb(245, 245, 245);
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(13, 83, 70,0.5),rgba(13, 83, 70,0.5)),url(image/chef.jpeg);
+    background-size: cover;
+    z-index: -1;
+    filter: blur(1px); /*Optional: add blur to focus on login form*/
+}
+
+.login-container {
+    background-color: rgba(217, 242, 238);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.login-box {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primaryColor);
+}
+
+.input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: rgb(47, 93, 98);
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color:rgb(13, 83, 70);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color:var(--secondaryColor);
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+p a {
+    color: #2f5d62;
+    text-decoration: none;
+}
